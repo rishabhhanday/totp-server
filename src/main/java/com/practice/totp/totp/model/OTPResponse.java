@@ -14,7 +14,6 @@ import lombok.Setter;
 @Setter
 public class OTPResponse {
 
-
   private Long otp;
   private Long exp;
 }

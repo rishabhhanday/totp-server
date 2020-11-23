@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>totp-client</title>
+    <link href="./css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <noscript>
+        <h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+            enabled. Please enable
+            Javascript and reload this page!</h2>
+    </noscript>
+    <div id="main-content" class="container">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">totp server url: </label>
+                    <input type="text" id="server-url" class="form-control" placeholder="http://localhost:8080">
+                </div>
+              <center>  <button id="connect" class="btn btn-success" type="submit">connect</button></center>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <table id="conversation" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>OTP</th>
+                            <th>timer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="greetings">
+                        <tr>
+                            <td id="otp">xxxxxx</td>
+                            <td id="timer">OTP will expire in y secs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./dist/bundle.js"></script>
+
+</html>
