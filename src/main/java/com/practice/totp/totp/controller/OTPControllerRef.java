@@ -1,4 +1,4 @@
-package com.practice.totp.totp;
+package com.practice.totp.totp.controller;
 
 import com.eatthepath.otp.TimeBasedOneTimePasswordGenerator;
 import java.security.InvalidKeyException;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class OTPController {
+public class OTPControllerRef {
 
   final TimeBasedOneTimePasswordGenerator totp;
   Key key;
 
-  public OTPController() throws NoSuchAlgorithmException {
+  public OTPControllerRef() throws NoSuchAlgorithmException {
     this.totp = new TimeBasedOneTimePasswordGenerator(
         Duration.ofSeconds(30));
     final KeyGenerator keyGenerator = KeyGenerator.getInstance("HmacSHA1");
