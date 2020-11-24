@@ -1,4 +1,4 @@
-package com.practice.totp.totp;
+package com.practice.totp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

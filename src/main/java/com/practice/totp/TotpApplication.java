@@ -1,4 +1,4 @@
-package com.practice.totp.totp;
+package com.practice.totp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

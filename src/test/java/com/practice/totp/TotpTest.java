@@ -1,4 +1,4 @@
-package com.practice.totp.totp;
+package com.practice.totp;
 
 import com.eatthepath.otp.TimeBasedOneTimePasswordGenerator;
 import java.security.InvalidKeyException;

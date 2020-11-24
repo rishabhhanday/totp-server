@@ -1,4 +1,4 @@
-package com.practice.totp.totp.model;
+package com.practice.totp.model;
 
 
 import lombok.AllArgsConstructor;

@@ -1,10 +1,9 @@
-package com.practice.totp.totp.service;
+package com.practice.totp.service;
 
-import com.eatthepath.otp.TimeBasedOneTimePasswordGenerator;
-import com.practice.totp.totp.model.OTPResponse;
+import com.practice.totp.model.OTPResponse;
+import com.practice.totp.otp.HmacOneTimePassword;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.time.Duration;
 import javax.crypto.spec.SecretKeySpec;
 import org.apache.tomcat.util.buf.HexUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,18 +30,17 @@ public class TOTPService {
 
     return OTPResponse.builder()
         .exp(((counter + 1) * timeStep * 1000) + startTime)
-        .otp(genrateOTP(algorithm, passwordLength, timeStep, counter, key))
+        .otp(genrateHOTP(algorithm, passwordLength, counter, key))
         .build();
   }
 
-  private Long genrateOTP(String algorithm, Integer passwordLength, Integer timeStep, long counter,
+  private Long genrateHOTP(
+      String algorithm,
+      Integer passwordLength,
+      long counter,
       SecretKeySpec key) throws NoSuchAlgorithmException, InvalidKeyException {
-    TimeBasedOneTimePasswordGenerator totp = new TimeBasedOneTimePasswordGenerator(
-        Duration.ofSeconds(timeStep),
-        passwordLength,
-        algorithm
-    );
+    HmacOneTimePassword hotp = new HmacOneTimePassword(passwordLength, algorithm);
 
-    return (long) totp.generateOneTimePassword(key, counter);
+    return (long) hotp.generateOneTimePassword(key, counter);
   }
 }
